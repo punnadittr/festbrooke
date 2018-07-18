@@ -236,3 +236,28 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+.friend-request-list {
+  margin-top: 3%;
+  padding-bottom: 5%;
+}
+
+.dropdown-menu {
+  padding-left: 10%;
+  width: 200px;
+}
+
+.friend-buttons {
+  display: inline-block;
+}
+
+.accept {
+  position: relative;
+  height: 30px;
+}
+
+.ignore {
+  position: relative;
+  height: 30px;
+  left: 0px;
+}

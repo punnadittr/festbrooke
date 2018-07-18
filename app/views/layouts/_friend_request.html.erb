@@ -1,0 +1,17 @@
+<li class="dropdown friend-request">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    Friend Requests <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu">
+    <% current_user.received_friend_requests.each do |request| %>
+      <div class="friend-request-list">
+        <li><%= request.sender.name %>
+          <div class="friend-buttons">
+            <%= button_tag "Accept", class: 'btn btn-primary accept' %>
+            <%= button_tag "Ignore", class: 'btn btn-light ignore' %>
+          </div>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</li>
