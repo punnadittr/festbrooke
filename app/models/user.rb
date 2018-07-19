@@ -9,6 +9,9 @@ class User < ApplicationRecord
             :class_name => 'FriendRequest', 
             dependent: :destroy
 
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, 

@@ -5,8 +5,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
-          <%= render 'layouts/friend_request' %>
-          <%= render 'layouts/profile_dropdown'%>
+            <%= render 'layouts/friend_request'%>
+            <%= render 'layouts/profile_dropdown'%>
         <% else %>
           <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>

@@ -7,7 +7,11 @@
       <div class="friend-request-list">
         <li><%= request.sender.name %>
           <div class="friend-buttons">
-            <%= button_tag "Accept", class: 'btn btn-primary accept' %>
+            <%= button_to "Accept", 
+                users_accept_friend_path, 
+                :params => { :sender_id => request.sender.id },
+                method: :post, 
+                class: 'btn btn-primary accept' %>
             <%= button_tag "Ignore", class: 'btn btn-light ignore' %>
           </div>
         </li>

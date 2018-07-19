@@ -2,10 +2,10 @@
 
 one:
   sender_id: 1
-  receipient_id: 1
-  status: MyString
+  recipient_id: 1
+  accept: false
 
 two:
   sender_id: 1
-  receipient_id: 1
-  status: MyString
+  recipient_id: 1
+  accept: false
