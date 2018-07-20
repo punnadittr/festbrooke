@@ -7,4 +7,8 @@ module UsersHelper
   def not_self?(other_user)
     current_user != other_user
   end
+
+  def not_friend?(user)
+    !current_user.friends.include?(user)
+  end
 end

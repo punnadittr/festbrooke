@@ -9,7 +9,6 @@
   </aside>
   <div class="col-md-8">
   <% if not_self?(@user) %>
-    <% if !current_user.friends.include?(@user) %>
       <%= button_to "Add Friend", 
                     friend_requests_path,
                     :params => { :friend_id => @user.id },
@@ -22,6 +21,5 @@
                     method: :delete,
                     class: "btn btn-danger unfriend" %>
     <% end %>
-  <% end %>
   </div>
 </div>

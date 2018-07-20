@@ -239,8 +239,27 @@ input {
 
 /* Friend List */
 
+.friend-list {
+  width: auto;
+  height: 40px;
+}
+
+.friend-name {
+  position: relative;
+  top: 5px;
+  font-size: 1.2em;
+}
+
 .friend-info {
   font-size: 1.2em;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 #unfriend-small {

@@ -9,27 +9,37 @@
   <div class="col-md-4">
     <h3> Friends </h3>
       <% @friends.each do |friend| %>
-        <div class="row-fluid">
-          <%= link_to friend.name, user_path(friend.id) %>
-          <div class="btn-group">
+        <div class="friend-list">
+          <div class="left">
+            <%= link_to friend.name, user_path(friend.id), class: "friend-name" %>
+          </div>
+          <div class="right">
             <%= button_to "Unfriend",
                           friend_path(friend.id),
                           :params => { :friend_id => friend.id },
                           method: :delete,
-                          class: "btn btn-danger btn-sm pull-right",
-                          id: "unfriend-small" %>
+                          class: "btn btn-danger btn-sm" %>
           </div>
         </div>
       <% end %>
     <hr>
   </div>
-    <div class="col-md-4">
+  <div class="col-md-4">
     <h3> Pending Friends </h3>
-      <% current_user.sent_friend_requests.each do |rq| %>
-        <div class="request-info">
-          <p><%= link_to rq.recipient.name, user_path(rq.recipient_id) %></p>
+    <% current_user.sent_friend_requests.each do |rq| %>
+      <div class="friend-list">
+        <div class="left">
+          <%= link_to rq.recipient.name, user_path(rq.recipient), class: "friend-name" %>
         </div>
-      <% end %>
+        <div class="right">
+          <%= button_to "Cancel Request",
+                        friend_request_path(rq),
+                        :params => { :id => rq.id },
+                        method: :delete,
+                        class: "btn btn-danger btn-sm" %>
+        </div>
+      </div>
+    <% end %>
     <hr>
   </div>
 </div>
