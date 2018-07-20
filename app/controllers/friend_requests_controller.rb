@@ -6,6 +6,7 @@ class FriendRequestsController < ApplicationController
     @friend_request = current_user.sent_friend_requests.new(recipient: friend)
     @friend_request.save
     redirect_to friend_requests_path
+    flash[:success] = 'Friend request sent'
   end
   
   def index

@@ -2,15 +2,23 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1><i class="fas fa-user-friends"></i>Friends</h1>
+      <h1><%= icon('fas', 'user-friends')%> Friends</h1>
       <h2><%= link_to "Your Profile", user_path(current_user) %></h2>
     </section>
   </aside>
   <div class="col-md-4">
     <h3> Friends </h3>
       <% @friends.each do |friend| %>
-        <div class="friend-info">
-          <p><%= link_to friend.name, user_path(friend.id) %></p>
+        <div class="row-fluid">
+          <%= link_to friend.name, user_path(friend.id) %>
+          <div class="btn-group">
+            <%= button_to "Unfriend",
+                          friend_path(friend.id),
+                          :params => { :friend_id => friend.id },
+                          method: :delete,
+                          class: "btn btn-danger btn-sm pull-right",
+                          id: "unfriend-small" %>
+          </div>
         </div>
       <% end %>
     <hr>

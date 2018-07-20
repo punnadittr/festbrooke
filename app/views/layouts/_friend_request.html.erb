@@ -1,6 +1,6 @@
 <li class="dropdown friend-request">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    Friend Requests <b class="caret"></b>
+    <%= icon('fas', 'envelope')%> Friend Requests <b class="caret"></b>
   </a>
   <ul class="dropdown-menu">
     <% current_user.received_friend_requests.each do |rq| %>
@@ -24,6 +24,6 @@
         </li>
       </div>
     <% end %>
-    <%= link_to 'Show All', friend_requests_path %>
+    <%= link_to 'Show All', friend_requests_path, class: "showall" %>
   </ul>
 </li>

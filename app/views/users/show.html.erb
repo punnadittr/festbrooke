@@ -17,8 +17,10 @@
                     class: 'btn btn-primary add-friend' %>
     <% else %>
       <%= button_to "Unfriend",
-                    '#',
-                    class: "btn btn-primary unfriend" %>
+                    friend_path(@user.id),
+                    :params => { :friend_id => @user.id },
+                    method: :delete,
+                    class: "btn btn-danger unfriend" %>
     <% end %>
   <% end %>
   </div>

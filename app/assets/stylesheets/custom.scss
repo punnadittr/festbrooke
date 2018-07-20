@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 $gray-medium-light: #eaeaea;
 
@@ -200,6 +202,8 @@ input {
   margin-left: 0;
 }
 
+/* Dropdown menu */
+
 .friend-request-list {
   margin-top: 3%;
   padding-bottom: 5%;
@@ -226,4 +230,19 @@ input {
 .ignore {
   height: 15px;
   left: 0px;
+}
+
+.showall {
+  position: relative;
+  left: 40px;
+}
+
+/* Friend List */
+
+.friend-info {
+  font-size: 1.2em;
+}
+
+#unfriend-small {
+  float: right !important; 
 }
