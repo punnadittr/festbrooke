@@ -2,13 +2,11 @@ class FriendRequestsController < ApplicationController
   before_action :set_friend_request, except: [:index, :create]
 
   def create
-    friend = User.find(params[:friend_id])
+    friend = User.find(params[:id])
     @friend_request = current_user.sent_friend_requests.build(recipient: friend)
     if @friend_request.save
       redirect_to friend_requests_path
       flash[:success] = 'Friend request sent'
-    else
-      flash.now[:danger] = 'Error'
     end
   end
   

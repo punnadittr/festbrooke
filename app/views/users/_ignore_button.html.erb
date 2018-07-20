@@ -1,0 +1,6 @@
+<%= render 'request_button',
+    action: 'Ignore', 
+    path: friend_request_path(@received_request), 
+    id: @received_request.id, 
+    method: :delete, 
+    klass: 'btn btn-light ignore' %>

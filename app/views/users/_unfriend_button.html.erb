@@ -1,0 +1,6 @@
+<%= render 'request_button',
+    action: 'Unfriend', 
+    path: friend_path(@user.id), 
+    id: @user.id, 
+    method: :delete, 
+    klass: 'btn btn-danger unfriend' %>

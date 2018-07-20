@@ -16,7 +16,7 @@
           <div class="right">
             <%= button_to "Unfriend",
                           friend_path(friend.id),
-                          :params => { :friend_id => friend.id },
+                          :params => { :id => friend.id },
                           method: :delete,
                           class: "btn btn-danger btn-sm" %>
           </div>

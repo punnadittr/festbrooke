@@ -9,17 +9,17 @@
   </aside>
   <div class="col-md-8">
   <% if not_self?(@user) %>
-      <%= button_to "Add Friend", 
-                    friend_requests_path,
-                    :params => { :friend_id => @user.id },
-                    method: :post,
-                    class: 'btn btn-primary add-friend' %>
-    <% else %>
-      <%= button_to "Unfriend",
-                    friend_path(@user.id),
-                    :params => { :friend_id => @user.id },
-                    method: :delete,
-                    class: "btn btn-danger unfriend" %>
+    <% if request_sent?(@user) %>
+      <%= render 'cancel_button' %>
+    <% elsif request_received?(@user) %>
+      <%= render 'accept_button' %>
+      <%= render 'ignore_button' %>
+    <% elsif current_user.friends.include?(@user) %>
+      <%= render 'unfriend_button' %>
+    <% else %>           
+      <%= render 'add_friend_button' %>
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

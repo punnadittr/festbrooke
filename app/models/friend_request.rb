@@ -21,7 +21,7 @@ class FriendRequest < ApplicationRecord
   end
 
   def not_pending
-    if recipient.received_friend_requests & sender.sent_friend_requests
+    if !(recipient.received_friend_requests & sender.sent_friend_requests).blank?
       errors.add(:recipient, 'already requested friendship')
     end
   end

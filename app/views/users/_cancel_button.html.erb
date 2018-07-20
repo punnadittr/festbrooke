@@ -1,0 +1,6 @@
+ <%= render 'request_button',
+    action: 'Cancel Request', 
+    path: friend_request_path(@sent_request), 
+    id: @sent_request.id, 
+    method: :delete, 
+    klass: 'btn btn-primary ignore' %>

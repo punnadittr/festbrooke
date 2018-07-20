@@ -4,3 +4,24 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+
+user1:
+  id: 1
+  name: Punnadit Trussat
+  email: punnadittr@gmail.com
+  password: 123456
+  password_confirmation: 123456
+
+user2:
+  id: 2
+  name: Aifa Trussat
+  email: aifa@gmail.com
+  password: 123456
+  password_confirmation: 123456
+
+user2:
+  id: 2
+  name: Aifa Trussat
+  email: aifa@gmail.com
+  password: 123456
+  password_confirmation: 123456
