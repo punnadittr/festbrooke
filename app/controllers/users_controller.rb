@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   include UsersHelper
-  before_action :accept_mutual_friend, only: [:accept_friend]
+  after_action :accept_mutual_friend, only: [:accept_friend]
 
-  def accept_friend
-    current_user.friends << adding_user
+  def index
+    @users = User.all
   end
 
-  def accept_mutual_friend
-    adding_user.friends << current_user
+  def show
+    @user = User.find(params[:id])
   end
 end

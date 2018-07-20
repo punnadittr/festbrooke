@@ -3,19 +3,27 @@
     Friend Requests <b class="caret"></b>
   </a>
   <ul class="dropdown-menu">
-    <% current_user.received_friend_requests.each do |request| %>
+    <% current_user.received_friend_requests.each do |rq| %>
       <div class="friend-request-list">
-        <li><%= request.sender.name %>
+        <li>
+          <div class="request-name">
+            <%= rq.sender.name %>
+          </div>
           <div class="friend-buttons">
-            <%= button_to "Accept", 
-                users_accept_friend_path, 
-                :params => { :sender_id => request.sender.id },
-                method: :post, 
+            <%= button_to "Accept",
+                friend_request_path(rq), 
+                :params => { :id => rq.id },
+                method: :put, 
                 class: 'btn btn-primary accept' %>
-            <%= button_tag "Ignore", class: 'btn btn-light ignore' %>
+            <%= button_to "Ignore", 
+                friend_request_path(rq),
+                :params => { :id => rq.id },
+                method: :delete,
+                class: 'btn btn-light ignore' %>
           </div>
         </li>
       </div>
     <% end %>
+    <%= link_to 'Show All', friend_requests_path %>
   </ul>
 </li>

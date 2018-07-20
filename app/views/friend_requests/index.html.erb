@@ -2,24 +2,24 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1><i class="fas fa-user-friends"></i>Friends</h1>
+      <h1>Friend Requests</h1>
       <h2><%= link_to "Your Profile", user_path(current_user) %></h2>
     </section>
   </aside>
   <div class="col-md-4">
-    <h3> Friends </h3>
-      <% @friends.each do |friend| %>
-        <div class="friend-info">
-          <p><%= link_to friend.name, user_path(friend.id) %></p>
+    <h3> Received Requests </h3>
+      <% @incoming.each do |rq| %>
+        <div class="request-info">
+          <p><%= rq.sender.name %></p>
         </div>
       <% end %>
     <hr>
   </div>
     <div class="col-md-4">
-    <h3> Pending Friends </h3>
-      <% current_user.sent_friend_requests.each do |rq| %>
+    <h3> Sent Requests </h3>
+      <% @outgoing.each do |rq| %>
         <div class="request-info">
-          <p><%= link_to rq.recipient.name, user_path(rq.recipient_id) %></p>
+          <p><%= rq.recipient.name %></p>
         </div>
       <% end %>
     <hr>

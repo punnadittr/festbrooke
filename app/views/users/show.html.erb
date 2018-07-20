@@ -1,0 +1,25 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+  <% if not_self?(@user) %>
+    <% if !current_user.friends.include?(@user) %>
+      <%= button_to "Add Friend", 
+                    friend_requests_path,
+                    :params => { :friend_id => @user.id },
+                    method: :post,
+                    class: 'btn btn-primary add-friend' %>
+    <% else %>
+      <%= button_to "Unfriend",
+                    '#',
+                    class: "btn btn-primary unfriend" %>
+    <% end %>
+  <% end %>
+  </div>
+</div>

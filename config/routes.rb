@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'friends/create'
-  get 'friends/index'
-  get 'friends/destroy'
-  devise_for :users
   root 'static_pages#home'
-  post 'users/accept_friend'
+  devise_for :users
   resources :users
   resources :friendships
+  resources :friend_requests, only: [:index, :create, :show, :destroy, :update]
+  resources :friends
 end

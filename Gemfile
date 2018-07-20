@@ -7,9 +7,11 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.0'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
 gem 'omniauth'
+gem 'faker'
 gem 'jquery-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-sass'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
