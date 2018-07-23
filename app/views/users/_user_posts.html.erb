@@ -1,0 +1,24 @@
+<% unless @posts.blank? %>
+  <% @posts.each do |post| %>
+    <% unless post.id.nil? %>
+    <div class="post-container">
+      <div class="author-info">
+        <p><%= link_to post.user.name, user_path(current_user) %></p>
+        <%= time_ago_in_words(post.created_at) + " ago" %>
+        
+      </div>
+      <div class="post-content">
+        <%= post.content %>
+        <br>
+      </div>
+      <div class="like-button-section">
+        <p>0 Likes </p>
+      </div>
+      <div class="comment-box">
+
+      </div>
+      <hr>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>

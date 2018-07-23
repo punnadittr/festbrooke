@@ -5,21 +5,28 @@
       <h1>
         <%= @user.name %>
       </h1>
+      <% if not_self?(@user) %>
+        <% if request_sent?(@user) %>
+          <%= render 'cancel_button' %>
+        <% elsif request_received?(@user) %>
+          <%= render 'accept_button' %>
+          <%= render 'ignore_button' %>
+        <% elsif current_user.friends.include?(@user) %>
+          <%= render 'unfriend_button' %>
+        <% else %>           
+          <%= render 'add_friend_button' %>
+          </div>
+        <% end %>
+      <% end %>
     </section>
   </aside>
-  <div class="col-md-8">
-  <% if not_self?(@user) %>
-    <% if request_sent?(@user) %>
-      <%= render 'cancel_button' %>
-    <% elsif request_received?(@user) %>
-      <%= render 'accept_button' %>
-      <%= render 'ignore_button' %>
-    <% elsif current_user.friends.include?(@user) %>
-      <%= render 'unfriend_button' %>
-    <% else %>           
-      <%= render 'add_friend_button' %>
-      </div>
-      <% end %>
+  <div class="col-md-6">
+    <h1>
+      Your Posts
+    </h1>
+    <% if @user == current_user %>
+      <%= render 'shared/post_form' %>
     <% end %>
+    <%= render 'user_posts'%>
   </div>
 </div>
