@@ -5,7 +5,7 @@ class FriendRequestsController < ApplicationController
     friend = User.find(params[:id])
     @friend_request = current_user.sent_friend_requests.build(recipient: friend)
     if @friend_request.save
-      redirect_to friend_requests_path
+      redirect_to user_path(friend)
       flash[:success] = 'Friend request sent'
     end
   end
@@ -17,8 +17,8 @@ class FriendRequestsController < ApplicationController
 
   def destroy
     @friend_request.destroy
-    redirect_to user_path(current_user.id)
-    flash[:info] = 'Friend request ignored'
+    redirect_to user_path(current_user)
+    flash[:info] = 'Friend request deleted'
   end
 
   def update

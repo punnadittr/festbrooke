@@ -6,20 +6,20 @@
 #
 
 user1:
-  id: 1
+  id: 999
   name: Punnadit Trussat
-  email: punnadittr@gmail.com
+  email: someone@something.com
   encrypted_password: <%= User.new.send(:password_digest, '123456') %>
 
 user2:
-  id: 2
+  id: 1500
   name: Aifa Trussat
-  email: aifa@gmail.com
+  email: xoxo@xoxo.com
   encrypted_password: <%= User.new.send(:password_digest, '123456') %>
 
 user3:
-  id: 3
+  id: 4500
   name: Onnicha Wattanasiributh
-  email: onnicha@gmail.com
+  email: hello@world.com
   encrypted_password: <%= User.new.send(:password_digest, '123456') %>
   
