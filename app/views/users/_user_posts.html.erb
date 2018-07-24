@@ -3,9 +3,8 @@
     <% unless post.id.nil? %>
     <div class="post-container">
       <div class="author-info">
-        <p><%= link_to post.user.name, user_path(current_user) %></p>
+        <p><%= link_to post.user.name, user_path(@user) %></p>
         <%= time_ago_in_words(post.created_at) + " ago" %>
-        
       </div>
       <div class="post-content">
         <%= post.content %>
