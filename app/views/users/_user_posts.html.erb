@@ -11,7 +11,9 @@
         <br>
       </div>
       <div class="like-button-section">
-        <p>0 Likes </p>
+        <%= button_to 'Like', 
+            post_likes_path(post.id), 
+            method: :post %>
       </div>
       <div class="comment-box">
 
