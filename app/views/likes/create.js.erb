@@ -1,0 +1,1 @@
+$("<%= '#like-form' + (@post.id).to_s %>").html("<%= escape_javascript(render('users/unlike_button', post: @post)) %>");

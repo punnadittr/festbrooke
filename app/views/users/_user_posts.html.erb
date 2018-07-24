@@ -11,9 +11,13 @@
         <br>
       </div>
       <div class="like-button-section">
-        <%= button_to 'Like', 
-            post_likes_path(post.id), 
-            method: :post %>
+        <div id="like-form<%= post.id %>">
+          <% if !post.likes.where('user_id = ?', current_user.id).blank? %>
+            <%= render 'unlike_button', post: post %>
+          <% else %>
+            <%= render 'like_button', post: post %>
+          <% end %>
+        </div>
       </div>
       <div class="comment-box">
 
