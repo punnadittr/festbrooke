@@ -1,5 +1,5 @@
 <% if current_user %>
-  <%= current_user.email %>
+  <%= link_to 'Your Profile', user_path(current_user) %>
 <% else %>
   <div class="center jumbotron">
   <h1>Welcome to FestBrooke</h1>

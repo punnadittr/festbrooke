@@ -16,7 +16,8 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
   # Make `assert_*` methods behave like Minitest assertions
   include Capybara::Minitest::Assertions
-
+  
+  Capybara.default_max_wait_time = 5
   # Reset sessions and driver between tests
   # Use super wherever this method is redefined in your individual test classes
   def teardown

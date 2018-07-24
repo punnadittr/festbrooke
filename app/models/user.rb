@@ -12,13 +12,13 @@ class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :posts, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   validates :email, presence: :true
   validates :name, presence: :true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, 
-         :recoverable, :rememberable, :omniauthable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable,
+         :rememberable, :omniauthable, :validatable
 end
