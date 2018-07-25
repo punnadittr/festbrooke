@@ -1,0 +1,14 @@
+<div class="like-button-container">
+  <span class="like-button" id="like-form<%= post.id %>">
+  <% if !post.likes.where('user_id = ?', current_user.id).blank? %>
+    <%= render 'unlike_button', post: post %>
+  <% else %>
+    <%= render 'like_button', post: post %>
+  <% end %>
+  </span>
+  <span class="like-count" id="likers-<%="#{post.id}"%>">
+    <% unless post.likes.count == 0 %>
+      <%= "#{pluralize(post.likes.count, 'person')} like(s) this" %>
+    <% end %>
+  </span>
+</div>

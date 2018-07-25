@@ -1,51 +1,30 @@
 <% unless @posts.blank? %>
   <% @posts.each do |post| %>
     <% unless post.id.nil? %>
-    <div class="post-container">
-      <div class="author-info">
-        <%= link_to post.user.name, user_path(@user), class: "author-name" %>
-        <% if post.user == current_user %>
-          <%= render 'shared/delete_post', post: post %>
-        <% end %>
-      </div>
-      <div class="post-time-container">
-         <p class="post-time"><%= time_ago_in_words(post.created_at) + " ago" %></p>  
-      </div>
-      <div class="post-content">
-        <% if post.content.length < 50 %>
-          <h3><%= post.content %></h2>
-        <% else %>
-          <%= post.content %>
-        <% end %>
-        <div class="above-line"></div>
-      </div>
-        <div class="like-button-container">
-          <span class="like-button" id="like-form<%= post.id %>">
-          <% if !post.likes.where('user_id = ?', current_user.id).blank? %>
-            <%= render 'unlike_button', post: post %>
-          <% else %>
-            <%= render 'like_button', post: post %>
-          <% end %>
-          </span>
-          <span class="like-count" id="likers-<%="#{post.id}"%>">
-            <% unless post.likes.count == 0 %>
-              <%= "#{pluralize(post.likes.count, 'person')} like(s) this" %>
-            <% end %>
-          </span>
-        </div>
+      <div class="post-container">
+        <%= render 'shared/post_author_section', post: post %>
+        <%= render 'shared/post_time', post: post %>
+        <%= render 'shared/post_content', post: post %>
+        <%= render 'shared/like_button_area', post: post %>
         <div class="under-line"></div>
-      <div class="comment-box">
+        <div class="comment-box">
           <% post.comments.each do |comment| %>
-            <div class="show-comments">
-              <%= link_to comment.user.name, user_path(comment.user) %>  <i class="far fa-comment"></i> </p>
-              <span class="comment-content"> > <%= comment.content %></span>
+            <div class="commentator">
+              <%= link_to comment.user.name, 
+                          user_path(comment.user), 
+                          class: "commentator-name" %>
+                          <i class="far fa-comment"></i>
+              <% if comment.user == current_user %>  
+                <%= render 'shared/delete_comment', comment: comment, post: post %>
+              <% end %>
             </div>
+            <span class="comment-content"> > <%= comment.content %></span>
           <% end %>
-        <div class="write-comments">
-          <%= render 'shared/comment_form', post: post %>
+          <div class="write-comments">
+            <%= render 'shared/comment_form', post: post %>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   <% end %>
 <% end %>

@@ -333,6 +333,24 @@ input {
 
 /* Comment Section */
 
+.commentator {
+  margin-top: 3%;
+  height: 30px;
+}
+
+.commentator-name {
+  float: left;
+  margin-right: 1%;
+}
+
+.delete-comment-btn {
+  background: none;
+}
+
+.edit_comment {
+  float: right;
+}
+
 .show-comments {
   margin-bottom: 2%;
 }
@@ -343,7 +361,8 @@ input {
 }
 
 .comment-field {
-  height: 50px;
+  margin-top: 3%;
+  height: 60px;
   padding-bottom: 0;
   margin-bottom: 0;
 }

@@ -1,0 +1,6 @@
+<div class="author-info">
+  <%= link_to post.user.name, user_path(@user), class: "author-name" %>
+  <% if post.user == current_user %>
+    <%= render 'shared/delete_post', post: post %>
+  <% end %>
+</div>
