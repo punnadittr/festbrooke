@@ -30,12 +30,12 @@
         </div>
         <div class="under-line"></div>
       <div class="comment-box">
-        <div class="show-comments">
           <% post.comments.each do |comment| %>
-            <p><%= link_to comment.user.name, user_path(comment.user) %></p>
-            <%= comment.content %>
+            <div class="show-comments">
+              <%= link_to comment.user.name, user_path(comment.user) %>  <i class="far fa-comment"></i> </p>
+              <span class="comment-content"> > <%= comment.content %></span>
+            </div>
           <% end %>
-        </div>
         <div class="write-comments">
           <%= render 'shared/comment_form', post: post %>
         </div>

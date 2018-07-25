@@ -292,6 +292,13 @@ input {
 .like-count {
   display: inline-block;
 }
+
+/* Post writing */
+
+.post-writing {
+  padding-left: 3.5%;
+  padding-right: 3.5%;
+}
 /* Post section */
 
 .post-container {
@@ -311,4 +318,15 @@ input {
 
 .post-time {
   font-size: 0.9em;
+}
+
+/* Comment Section */
+
+.show-comments {
+  margin-bottom: 2%;
+}
+
+.comment-content {
+  width: auto;
+  background: #f7f7f7;
 }
