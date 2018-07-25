@@ -4,7 +4,12 @@
     <div class="post-container">
       <div class="author-info">
         <%= link_to post.user.name, user_path(@user), class: "author-name" %>
-        <p class="post-time"><%= time_ago_in_words(post.created_at) + " ago" %></p>
+        <% if post.user == current_user %>
+          <%= render 'shared/delete_post', post: post %>
+        <% end %>
+      </div>
+      <div class="post-time-container">
+         <p class="post-time"><%= time_ago_in_words(post.created_at) + " ago" %></p>  
       </div>
       <div class="post-content">
         <% if post.content.length < 50 %>
