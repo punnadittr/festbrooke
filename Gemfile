@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'faker'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem "font-awesome-rails"
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

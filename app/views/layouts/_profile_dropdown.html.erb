@@ -8,7 +8,10 @@
     <li><%= link_to icon('fas', 'cog') + " Settings", edit_user_registration_path(current_user) %></li>
     <li class="divider"></li>
     <li>
-      <%= link_to icon('fas', 'sign-out-alt') + " Log out", destroy_user_session_path , method: :delete, id: 'logout-button' %>
+      <%= link_to icon('fas', 'sign-out-alt') + " Log out", 
+          destroy_user_session_path , 
+          method: :delete, 
+          id: 'logout-button' %>
     </li>
   </ul>
 </li>

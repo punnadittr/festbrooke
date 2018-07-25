@@ -76,11 +76,6 @@ h2 {
   color: $gray-light;
 }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
 /* header */
 #logo {
   float: left;
@@ -267,7 +262,53 @@ input {
 }
 
 /* Like buttons */
+
 .like-button-container {
+  padding-top: 1%;
+  padding-bottom: 1%;
   height: auto;
+  width: auto;
+}
+
+.above-line {
+  margin-top: 1%;
+  width: 45%;
+  border-top: 1px solid rgb(243, 242, 242);
+}
+
+.under-line {
+  margin-bottom: 2%;
+  width: 45%;
+  border-top: 1px solid rgb(243, 242, 242);
+}
+
+
+.like-button {
   width: 10%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.like-count {
+  display: inline-block;
+}
+/* Post section */
+
+.post-container {
+  padding-left: 3.5%;
+  padding-right: 3.5%;
+  border-left: 1px solid rgb(243, 242, 242);
+  border-right: 1px solid rgb(243, 242, 242);
+}
+
+.author-info {
+  margin-top: 3%;
+}
+
+.author-name {
+  font-size: 1.5em;
+}
+
+.post-time {
+  font-size: 0.9em;
 }
