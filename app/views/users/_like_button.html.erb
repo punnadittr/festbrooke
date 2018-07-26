@@ -3,7 +3,7 @@
               remote: true) do |f| %>
   <div><%= hidden_field_tag :user_id, current_user.id %></div>
   <%= button_tag class: "btn btn-primary btn-xs like-btn" do %>
-    <i class="fas fa-thumbs-up"></i> Like
+    <%= icon('fas', 'thumbs-up') + " Like" %> 
   <% end %>
 <% end %>
 

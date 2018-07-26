@@ -6,13 +6,13 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 gem 'devise'
+gem 'bootstrap'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'omniauth'
 gem 'faker'
 gem 'jquery-rails'
-gem 'font-awesome-sass'
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.0.13'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
