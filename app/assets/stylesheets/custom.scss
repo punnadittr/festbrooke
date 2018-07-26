@@ -1,9 +1,8 @@
-@import "bootstrap-sprockets";
+$gray-medium-light: #eaeaea;
+
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-$gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -19,8 +18,14 @@ $gray-medium-light: #eaeaea;
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid gray;
   }
+}
+
+/* Navbar */
+
+.navbar {
+  margin-bottom: 60px;
 }
 
 /* miscellaneous */
@@ -35,12 +40,8 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
-}
-
-section {
-  overflow: auto;
+p {
+  margin-top: initial;
 }
 
 textarea {
@@ -74,7 +75,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
 }
 
 /* header */
@@ -97,12 +97,12 @@ h2 {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
+  border-top: 1px solid gray;
   color: #777;
   a {
     color: gray;
     &:hover {
-      color: $gray-darker;
+      color: gray;
     }
   }
   small {
@@ -125,7 +125,7 @@ footer {
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
+    border-left: 1px solid gray;
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -178,9 +178,9 @@ input {
 }
 
 .field_with_errors {
-  @extend .has-error;
+  @extend .has-error !optional;
   .form-control {
-    color: $state-danger-text;
+    color: red;
   }
 }
 
@@ -200,37 +200,31 @@ input {
 
 /* Dropdown menu */
 
-.friend-request-list {
-  margin-top: 3%;
-  padding-bottom: 5%;
+.dropdown-item-friend-request {
+  height: 40px;
 }
 
-.request-name {
-  width: 100%;
+.dropdown-menu-friend-request {
+  width: 380px;
 }
 
-.dropdown-menu {
-  padding-left: 10%;
-  width: 180px;
+.dropdown-btn {
+  margin-right: 2%;
+  float: right;
 }
 
-.friend-buttons {
-  position: relative;
-  display: inline-flex;
+.sender-name {
+  margin-top: 1%;
+  float: left;
 }
 
-.accept {
-  height: 15px;
-}
-
-.ignore {
-  height: 15px;
-  left: 0px;
+.dropdown-divider-special {
+  margin-top: 4%;
 }
 
 .showall {
   position: relative;
-  left: 40px;
+  left: 160px;
 }
 
 /* Friend List */
@@ -265,10 +259,8 @@ input {
 /* Like buttons */
 
 .like-button-container {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  height: auto;
-  width: auto;
+  height: 50px;
+  width: 100%;
 }
 
 .above-line {
@@ -283,15 +275,27 @@ input {
   border-top: 1px solid rgb(243, 242, 242);
 }
 
-
 .like-button {
-  width: 10%;
+  margin-right: 10px;
   display: inline-block;
   vertical-align: middle;
 }
 
 .like-count {
   display: inline-block;
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+
+.like-btn {
+  border: none;
+  margin: 10px 0;
+}
+
+.unlike-btn {
+  border: none;
+  width: auto;
+  margin: 10px 0;
 }
 
 /* Post writing */
@@ -326,9 +330,9 @@ input {
   font-size: 1.5em;
 }
 
-.post-time {
-  display: block;
-  font-size: 0.9em;
+.post-time-container {
+  margin: inherit;
+  justify-items: flex-start;
 }
 
 /* Comment Section */
@@ -368,5 +372,6 @@ input {
 }
 
 .comment-btn {
-  width: 20%;
+  margin-top: 3%;
+  width: 100px;
 }

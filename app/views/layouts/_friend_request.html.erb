@@ -1,29 +1,38 @@
-<li class="dropdown friend-request">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <%= icon('fas', 'envelope')  %> Friend Requests <b class="caret"></b>
-  </a>
-  <ul class="dropdown-menu">
-    <% current_user.received_friend_requests.each do |rq| %>
-      <div class="friend-request-list">
-        <li>
-          <div class="request-name">
-            <%= rq.sender.name %>
+<li class="nav-item active dropdown">
+    <a href="#" class="nav-link dropdown-toggle" 
+                id="dropdownMenuButton" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+      <%= icon('fas', 'envelope')  %> Friend Requests
+    </a>
+    <div class="dropdown-menu-friend-request dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <% current_user.received_friend_requests.each do |rq| %>
+        <div class="dropdown-item-friend-request dropdown-item">
+          <div class="sender-name">
+            <%= link_to rq.sender.name, user_path(rq.sender) %>
           </div>
-          <div class="friend-buttons">
-            <%= button_to "Accept",
-                friend_request_path(rq), 
-                :params => { :id => rq.id },
-                method: :put, 
-                class: 'btn btn-primary accept' %>
-            <%= button_to "Ignore", 
-                friend_request_path(rq),
-                :params => { :id => rq.id },
-                method: :delete,
-                class: 'btn btn-light ignore' %>
+          <div class="request-dropdown-button-wrapper">
+            <div class="request-dropdown-ignore dropdown-btn">
+                <%= button_to "Ignore", 
+                    friend_request_path(rq),
+                    :params => { :id => rq.id },
+                    method: :delete,
+                    class: 'btn btn-light btn-sm ignore' %>
+              </div>
+            <div class="request-dropdown-accept dropdown-btn">
+              <%= button_to "Accept",
+                  friend_request_path(rq), 
+                  :params => { :id => rq.id },
+                  method: :put, 
+                  class: 'btn btn-primary btn-sm accept' %>
+            </div>
           </div>
-        </li>
+        </div>
+      <% end %>
+      <div class="dropdown-divider-special dropdown-divider"></div>
+      <div class="showall">
+        <%= link_to 'Show All', friend_requests_path, class: "showall-text" %>
       </div>
-    <% end %>
-    <%= link_to 'Show All', friend_requests_path, class: "showall" %>
-  </ul>
+    </div>
 </li>

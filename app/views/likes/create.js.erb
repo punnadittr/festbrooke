@@ -1,3 +1,3 @@
-$("<%= '#like-form' + (@post.id).to_s %>").html("<%= escape_javascript(render('users/unlike_button', post: @post)) %>");
+$("<%= '#like-form' + (@post.id).to_s %>").html("<%= escape_javascript(render('shared/unlike_button', post: @post)) %>");
 $("<%= '#likers-' + (@post.id).to_s %>").html(
-"<% unless @post.likes.count == 0 %><%= pluralize(@post.likes.count, 'person') + ' like(s) this' %><% end %>");
+"<% unless @post.likes.count == 0 %><%= pluralize(@post.likes.count, 'person') + ' liked this' %><% end %>");

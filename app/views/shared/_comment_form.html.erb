@@ -5,5 +5,7 @@
     <%= f.hidden_field :post_id, value: post.id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
-  <%= f.submit "Comment", class: "btn btn-primary btn-sm comment-btn" %>
+  <div class="comment-button-wrapper">
+    <%= f.submit "Comment", class: "btn btn-primary btn-sm comment-btn" %>
+  </div>
 <% end %>

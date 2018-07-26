@@ -9,6 +9,8 @@ class User < ApplicationRecord
             :class_name => 'FriendRequest', 
             :dependent => :destroy
 
+  has_one_attached :avatar
+
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :posts, dependent: :destroy

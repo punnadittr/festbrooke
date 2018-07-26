@@ -8,7 +8,7 @@
   </span>
   <span class="like-count" id="likers-<%="#{post.id}"%>">
     <% unless post.likes.count == 0 %>
-      <%= "#{pluralize(post.likes.count, 'person')} like(s) this" %>
+      <%= "#{pluralize(post.likes.count, 'person')} liked this" %>
     <% end %>
   </span>
 </div>
