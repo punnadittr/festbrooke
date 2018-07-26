@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'omniauth'
 gem 'faker'
+gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.0.13'
 # Use postgresql as the database for Active Record
