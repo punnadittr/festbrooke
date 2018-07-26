@@ -1,6 +1,7 @@
-<%= render 'request_button',
+<%= render 'users/request_button',
     action: 'Ignore Request', 
-    path: friend_request_path(@received_request), 
-    id: @received_request.id, 
+    path: friend_request_path(received_request), 
+    id: received_request.id, 
     method: :delete, 
-    klass: 'btn btn-light ignore' %>
+    klass: 'btn btn-light ignore',
+    css_id: 'ignore-user-page' %>

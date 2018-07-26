@@ -1,5 +1,7 @@
 <%= button_to "#{action}",
               path,
+              remote: true,
               :params => { :id => id },
               method: method,
-              class: "#{klass}" %>
+              class: "#{klass}",
+              id: css_id %>

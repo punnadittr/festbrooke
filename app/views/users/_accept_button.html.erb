@@ -1,6 +1,7 @@
-<%= render 'request_button',
+<%= render 'users/request_button',
     action: 'Accept Request', 
     path: friend_request_path(@received_request), 
     id: @received_request.id, 
-    method: :put, 
-    klass: 'btn btn-primary accept' %>
+    method: :put,
+    klass: 'btn btn-primary accept',
+    css_id: 'accept-user-page' %>

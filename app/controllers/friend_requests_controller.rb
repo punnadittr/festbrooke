@@ -2,11 +2,15 @@ class FriendRequestsController < ApplicationController
   before_action :set_friend_request, except: [:index, :create]
 
   def create
-    friend = User.find(params[:id])
-    @friend_request = current_user.sent_friend_requests.build(recipient: friend)
+    @friend = User.find(params[:id])
+    @friend_request = current_user.sent_friend_requests.build(recipient: @friend)
     if @friend_request.save
-      redirect_to user_path(friend)
-      flash[:success] = 'Friend request sent'
+      respond_to do |format|
+        format.html { redirect_to @friend }
+        format.js
+      end
+    else
+      flash[:danger] = "Something went wrong"
     end
   end
   
@@ -17,13 +21,20 @@ class FriendRequestsController < ApplicationController
 
   def destroy
     @friend_request.destroy
-    redirect_to user_path(current_user)
-    flash[:info] = 'Friend request deleted'
+    @user = @friend_request.recipient
+    respond_to do |format|
+      format.html { redirect_to friend_requests_path }
+      format.js
+    end
   end
 
   def update
+    @user = @friend_request.sender
     @friend_request.accept
-    redirect_to user_path(current_user.id)
+    respond_to do |format|
+      format.html { redirect_to friends_path }
+      format.js
+    end
   end
 
   private

@@ -5,18 +5,20 @@
       <h1>
         <%= @user.name %>
       </h1>
+      <div id="user-page-button">
       <% if not_self?(@user) %>
         <% if request_sent?(@user) %>
-          <%= render 'cancel_button' %>
+          <%= render 'cancel_button', sent_request: @sent_request %>
         <% elsif request_received?(@user) %>
           <%= render 'accept_button' %>
-          <%= render 'ignore_button' %>
+          <%= render 'ignore_button', received_request: @received_request %>
         <% elsif current_user.friends.include?(@user) %>
           <%= render 'unfriend_button' %>
         <% else %>           
-          <%= render 'add_friend_button' %>
+          <%= render 'add_friend_button', user: @user %>
         <% end %>
       <% end %>
+      </div>
     </section>
   </aside>
   <div class="col-md-6">

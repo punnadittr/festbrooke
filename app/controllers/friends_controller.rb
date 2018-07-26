@@ -10,7 +10,10 @@ class FriendsController < ApplicationController
     friend = User.find(params[:id])
     current_user.friends.destroy(friend)
     friend.friends.destroy(current_user)
-    redirect_to friends_path
-    flash[:info] = 'Removed friend'
+    flash.now[:info] = 'Removed friend'
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.js
+    end
   end
 end

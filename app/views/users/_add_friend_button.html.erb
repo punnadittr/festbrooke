@@ -1,6 +1,7 @@
-<%= render 'request_button',
+<%= render 'users/request_button',
     action: 'Add Friend', 
     path: friend_requests_path, 
-    id: @user.id, 
+    id: user.id, 
     method: :post, 
-    klass: 'btn btn-primary add-friend' %>
+    klass: 'btn btn-primary add-friend',
+    css_id: 'add-friend-user-page' %>

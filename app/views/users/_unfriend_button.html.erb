@@ -1,6 +1,7 @@
-<%= render 'request_button',
+<%= render 'users/request_button',
     action: 'Unfriend', 
     path: friend_path(@user.id), 
-    id: @user.id, 
+    id: @user.id,
     method: :delete, 
-    klass: 'btn btn-danger unfriend' %>
+    klass: 'btn btn-danger unfriend',
+    css_id: 'unfriend-user-page' %>
