@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-  get 'comments/destroy'
-  get 'comments/update'
-  root 'static_pages#home'
+  root 'posts#index'
   devise_for :users
   resources :posts do
     resources :likes, only: [:create, :destroy]

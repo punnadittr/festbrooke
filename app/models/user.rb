@@ -22,4 +22,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :omniauthable, :validatable
+
+  def feed
+    friend_ids = "SELECT friend_id FROM friendships
+                      WHERE user_id = :user_id"
+    Post.where("user_id IN (#{friend_ids})
+    OR user_id = :user_id", user_id: id)
+  end
 end

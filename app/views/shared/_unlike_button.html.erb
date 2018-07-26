@@ -1,0 +1,7 @@
+<%= form_for(current_user.likes.find_by(post_id: post.id),
+             url: post_like_path(post.id, current_user.likes.find_by(post_id: post.id).id),
+             html: { method: :delete },
+             id: "like-#{post.id}",
+             remote: true) do |f| %>
+  <%= f.submit "Unlike", class: "btn btn-xs unlike-btn" %>
+<% end %>

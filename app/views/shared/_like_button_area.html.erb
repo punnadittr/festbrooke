@@ -1,9 +1,9 @@
 <div class="like-button-container">
   <span class="like-button" id="like-form<%= post.id %>">
   <% if !post.likes.where('user_id = ?', current_user.id).blank? %>
-    <%= render 'unlike_button', post: post %>
+    <%= render 'shared/unlike_button', post: post %>
   <% else %>
-    <%= render 'like_button', post: post %>
+    <%= render 'shared/like_button', post: post %>
   <% end %>
   </span>
   <span class="like-count" id="likers-<%="#{post.id}"%>">

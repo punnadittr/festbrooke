@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    @post = current_user.posts.build
+    @feed_items = current_user.feed
   end
 
   def show
