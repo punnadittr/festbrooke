@@ -11,7 +11,8 @@
       <% @friends.each do |friend| %>
         <div class="friend-list">
           <div class="left">
-            <%= link_to friend.name, user_path(friend.id), class: "friend-name" %>
+            <%= image_tag friend.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
+            <%= link_to friend.shorten_name, user_path(friend.id), class: "friend-name" %>
           </div>
           <div class="right">
             <%= button_to "Unfriend",
@@ -29,6 +30,7 @@
     <% current_user.sent_friend_requests.each do |rq| %>
       <div class="friend-list">
         <div class="left">
+          <%= image_tag rq.recipient.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
           <%= link_to rq.recipient.name, user_path(rq.recipient), class: "friend-name" %>
         </div>
         <div class="right">
@@ -36,7 +38,7 @@
                         friend_request_path(rq),
                         :params => { :id => rq.id },
                         method: :delete,
-                        class: "btn btn-danger btn-sm" %>
+                        class: "btn btn-outline-danger btn-sm" %>
         </div>
       </div>
     <% end %>

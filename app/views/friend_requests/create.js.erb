@@ -1,1 +1,2 @@
 $("#user-page-button").html("<%= escape_javascript(render('users/cancel_button', sent_request: current_user.sent_friend_requests.find_by(recipient_id: @friend.id))) %>");
+$("<%= '#user-index-button' + (@friend.id).to_s %>").html("Request Sent!")

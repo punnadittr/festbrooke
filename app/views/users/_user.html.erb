@@ -1,6 +1,16 @@
 <li class="user-li">
-  <% if user.avatar.attached? %>
-    <%= image_tag user.avatar.variant(resize: "40x40") %>
-  <% end %>
-  <%= link_to user.name, user %>
+  <div class="left">
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar.variant(resize: "40x40") %>
+    <% end %>
+    <%= link_to user.name, user %>
+  </div>
+  <div class="right" id="user-index-button<%= user.id %>">
+     <% if  not_self?(user) && 
+            !request_sent?(user) && 
+            !request_received?(user) && 
+            !current_user.friends.include?(user) %>
+      <%= render 'add_friend_button', user: user %>
+    <% end %>
+  </div>
 </li>

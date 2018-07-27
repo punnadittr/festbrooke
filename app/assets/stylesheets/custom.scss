@@ -240,10 +240,11 @@ input {
 
 .friend-list {
   width: auto;
-  height: 40px;
+  height: 50px;
 }
 
 .friend-name {
+  margin-left: 5px;
   position: relative;
   top: 5px;
   font-size: 1.2em;
