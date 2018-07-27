@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  paginates_per 25
+
   has_many  :received_friend_requests, 
             :foreign_key => 'recipient_id', 
             :class_name => 'FriendRequest', 

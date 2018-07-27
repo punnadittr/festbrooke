@@ -11,6 +11,8 @@ gem 'bootstrap-will_paginate'
 gem 'omniauth'
 gem 'faker'
 gem 'mini_magick'
+gem 'kaminari'
+gem 'image_processing'
 gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.0.13'

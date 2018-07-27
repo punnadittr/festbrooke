@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   after_action :accept_mutual_friend, only: [:accept_friend]
 
   def index
-    @users = User.all
+    @users = User.page params[:page]
   end
 
   def show

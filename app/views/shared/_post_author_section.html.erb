@@ -1,4 +1,7 @@
 <div class="author-info">
+  <% if post.user.avatar.attached? %>
+    <%= image_tag post.user.avatar.variant(resize: "40x40"), class: "small-avatar" %>
+  <% end %>
   <%= link_to post.user.name, user_path(post.user), class: "author-name" %>
   <% if post.user == current_user %>
     <%= render 'shared/delete_post', post: post %>

@@ -7,28 +7,34 @@
       <%= icon('fas', 'envelope')  %> Friend Requests
     </a>
     <div class="dropdown-menu-friend-request dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <% current_user.received_friend_requests.each do |rq| %>
-        <div class="dropdown-item-friend-request dropdown-item">
-          <div class="sender-name">
-            <%= link_to rq.sender.name, user_path(rq.sender) %>
-          </div>
-          <div class="request-dropdown-button-wrapper">
-            <div class="request-dropdown-ignore dropdown-btn">
-                <%= button_to "Ignore", 
-                    friend_request_path(rq),
+      <% if current_user.received_friend_requests.blank? %>
+        <div class="dropdown-item">
+          <h6 class="center"> You currently have no requests </h5>
+        </div>
+      <% else %>
+        <% current_user.received_friend_requests.each do |rq| %>
+          <div class="dropdown-item-friend-request dropdown-item">
+            <div class="sender-name">
+              <%= link_to rq.sender.name, user_path(rq.sender) %>
+            </div>
+            <div class="request-dropdown-button-wrapper">
+              <div class="request-dropdown-ignore dropdown-btn">
+                  <%= button_to "Ignore", 
+                      friend_request_path(rq),
+                      :params => { :id => rq.id },
+                      method: :delete,
+                      class: 'btn btn-light btn-sm ignore' %>
+                </div>
+              <div class="request-dropdown-accept dropdown-btn">
+                <%= button_to "Accept",
+                    friend_request_path(rq), 
                     :params => { :id => rq.id },
-                    method: :delete,
-                    class: 'btn btn-light btn-sm ignore' %>
+                    method: :put, 
+                    class: 'btn btn-primary btn-sm accept' %>
               </div>
-            <div class="request-dropdown-accept dropdown-btn">
-              <%= button_to "Accept",
-                  friend_request_path(rq), 
-                  :params => { :id => rq.id },
-                  method: :put, 
-                  class: 'btn btn-primary btn-sm accept' %>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
       <div class="dropdown-divider-special dropdown-divider"></div>
       <div class="showall">

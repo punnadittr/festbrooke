@@ -10,6 +10,9 @@
         <div class="comment-box">
           <% post.comments.each do |comment| %>
             <div class="commentator">
+            <% if comment.user.avatar.attached? %>
+              <%= image_tag comment.user.avatar.variant(resize: "32x32"), class: "comment-avatar" %>
+            <% end %>
               <%= link_to comment.user.name, 
                           user_path(comment.user), 
                           class: "commentator-name" %>
