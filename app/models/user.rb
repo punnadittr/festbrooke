@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_commit :add_default_avatar, on: [:create, :update]
 
   paginates_per 25
 
@@ -33,5 +34,15 @@ class User < ApplicationRecord
                       WHERE user_id = :user_id"
     Post.where("user_id IN (#{friend_ids})
     OR user_id = :user_id", user_id: id)
+  end
+
+  private 
+  
+  def add_default_avatar
+    unless avatar.attached?
+      self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpg")), 
+                        filename: 'default.jpg',
+                        content_type: "image/jpg")
+    end
   end
 end

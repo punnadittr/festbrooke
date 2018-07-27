@@ -1,3 +1,6 @@
 <li class="user-li">
+  <% if user.avatar.attached? %>
+    <%= image_tag user.avatar.variant(resize: "40x40") %>
+  <% end %>
   <%= link_to user.name, user %>
 </li>

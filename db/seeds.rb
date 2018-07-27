@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+
+User.create!(:name => 'Punnadit Trussat', :email => 'punnadittr@gmail.com', :password => '123456', :password_confirmation => '123456')
+User.create!(:name => 'Aifa Trussat', :email => 'aifa@gmail.com', :password => '123456', :password_confirmation => '123456')
+User.create!(:name => 'Onnicha Wattanasiributh', :email => 'onnicha@gmail.com', :password => '123456', :password_confirmation => '123456')
 
 99.times do
   name = Faker::Name.name
