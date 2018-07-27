@@ -213,10 +213,6 @@ input {
   height: 40px;
 }
 
-.dropdown-menu-friend-request {
-  width: 380px;
-}
-
 .dropdown-btn {
   margin-right: 2%;
   float: right;
@@ -233,9 +229,13 @@ input {
 
 .showall {
   position: relative;
-  left: 160px;
+  text-align: center;
 }
-
+@media (min-width: 576px) {
+  .dropdown-menu-friend-request {
+    width: 300px;
+  }
+}
 /* Friend List */
 
 .friend-list {

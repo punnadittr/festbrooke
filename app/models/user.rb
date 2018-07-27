@@ -13,7 +13,7 @@ class User < ApplicationRecord
             :class_name => 'FriendRequest', 
             :dependent => :destroy
 
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
@@ -28,6 +28,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :omniauthable, :validatable
+
+
+  def shorten_name
+    if self.name.length > 12
+      name = self.name.split
+      name[0] + ' ' + name[1][0] + '.'
+    else
+      self.name
+    end
+  end
 
   def feed
     friend_ids = "SELECT friend_id FROM friendships

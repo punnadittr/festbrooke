@@ -12,7 +12,7 @@ User.create!(:name => 'Aifa Trussat', :email => 'aifa@gmail.com', :password => '
 User.create!(:name => 'Onnicha Wattanasiributh', :email => 'onnicha@gmail.com', :password => '123456', :password_confirmation => '123456')
 
 99.times do
-  name = Faker::Name.name
+  name = Faker::Name.first_name + ' ' + Faker::Name.last_name
   email = Faker::Internet.email
   password = '123456'
   User.create!(:name => name, :email => email, :password => password, :password_confirmation => password)

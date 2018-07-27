@@ -2,6 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field post-writing">
     <%= f.text_area :content, placeholder: "What's on your mind today?...", class: "form-control"%>
+    <%= f.file_field :photo, multiple: false, direct_upload: true %>
     <%= f.submit "Post", class: "btn btn-primary" %>
   </div>
 <% end %>

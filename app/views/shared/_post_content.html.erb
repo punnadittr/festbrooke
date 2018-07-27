@@ -1,8 +1,12 @@
 <div class="post-content">
+
   <% if post.content.length < 50 %>
     <h3><%= post.content %></h2>
   <% else %>
     <%= post.content %>
+  <% end %>
+    <% if post.photo.attached? %>
+    <%= image_tag post.photo, class: "img-fluid max-width: 500px" %>
   <% end %>
   <div class="above-line"></div>
 </div>
