@@ -31,7 +31,7 @@
       <div class="friend-list">
         <div class="left">
           <%= image_tag rq.recipient.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
-          <%= link_to rq.recipient.name, user_path(rq.recipient), class: "friend-name" %>
+          <%= link_to rq.recipient.shorten_name(15), user_path(rq.recipient), class: "friend-name" %>
         </div>
         <div class="right">
           <%= button_to "Cancel Request",

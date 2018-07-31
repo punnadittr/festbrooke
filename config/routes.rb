@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'static_pages#home'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', :registrations => "custom_registrations" }
   resources :posts do
     resources :likes, only: [:create, :destroy]

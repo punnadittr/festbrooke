@@ -8,9 +8,9 @@
         </h1>
         <div class="profile-photo">
           <% if @user.avatar.blob.filename == 'default.jpg' && @user.provider == 'facebook' %>
-            <h1><%= image_tag @user.remote_avatar %></h1>
+            <h1 class="profile-pic"><%= image_tag @user.remote_avatar %></h1>
           <% else  %>
-            <h1><%= image_tag @user.avatar.variant(resize: "200x200") %></h1>
+            <h1 class="profile-pic"><%= image_tag @user.avatar.variant(resize: "200x200") %></h1>
           <% end %>
         </div>
         <div id="user-page-button">

@@ -2,7 +2,7 @@
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<%- if devise_mapping.registerable? && controller_name != 'custom_registrations' %>
   <%= link_to "Sign up", new_registration_path(resource_name) %><br />
 <% end -%>
 
@@ -21,7 +21,7 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-   <%= image_tag image_path('facebook_login.png'), class: 'facebook-login' %>
-  <% end %>
+      <%= image_tag image_path('facebook_login.png'), class: 'facebook-login' %>
+    <% end %>
  <% end %>
 <% end %>
