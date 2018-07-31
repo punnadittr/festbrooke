@@ -1,3 +1,4 @@
+require 'open-uri'
 class User < ApplicationRecord
   after_commit :add_default_avatar, on: [:create, :update]
 
@@ -27,11 +28,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :omniauthable, :validatable
+         :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
 
-
-  def shorten_name
-    if self.name.length > 12
+  def shorten_name(length)
+    if self.name.length > length
       name = self.name.split
       name[0] + ' ' + name[1][0] + '.'
     else
@@ -44,6 +44,23 @@ class User < ApplicationRecord
                       WHERE user_id = :user_id"
     Post.where("user_id IN (#{friend_ids})
     OR user_id = :user_id", user_id: id)
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name   # assuming the user model has a name
+      user.remote_avatar = auth.info.image
+    end
   end
 
   private 

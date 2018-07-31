@@ -15,7 +15,7 @@
         <% current_user.received_friend_requests.limit(10).each do |rq| %>
           <div class="dropdown-item-friend-request dropdown-item">
             <div class="sender-name">
-              <%= link_to rq.sender.shorten_name, user_path(rq.sender) %>
+              <%= link_to rq.sender.shorten_name(12), user_path(rq.sender) %>
             </div>
             <div class="request-dropdown-button-wrapper">
               <div class="request-dropdown-ignore dropdown-btn">

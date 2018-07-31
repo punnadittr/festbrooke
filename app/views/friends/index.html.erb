@@ -12,7 +12,7 @@
         <div class="friend-list">
           <div class="left">
             <%= image_tag friend.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
-            <%= link_to friend.shorten_name, user_path(friend.id), class: "friend-name" %>
+            <%= link_to friend.shorten_name(20), user_path(friend.id), class: "friend-name" %>
           </div>
           <div class="right">
             <%= button_to "Unfriend",

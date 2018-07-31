@@ -1,5 +1,7 @@
 <div class="author-info">
-  <% if post.user.avatar.attached? %>
+  <% if post.user.avatar.blob.filename == 'default.jpg' && post.user.provider == 'facebook' %>
+    <%= image_tag post.user.remote_avatar, class: "small-avatar" %>
+  <% else  %>
     <%= image_tag post.user.avatar.variant(resize: "40x40"), class: "small-avatar" %>
   <% end %>
   <%= link_to post.user.name, user_path(post.user), class: "author-name" %>

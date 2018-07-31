@@ -1,7 +1,6 @@
 <%= link_to raw("<i class=\"fas fa-user-plus\"> Add Friend</i>"), 
     friend_requests_path(id: user.id), 
     remote: true,
-    class: 'btn btn-primary add-friend',
-    id: 'add-friend-user-page',
+    class: 'btn btn-primary btn-sm add-friend-user-index',
     method: :post
 %>

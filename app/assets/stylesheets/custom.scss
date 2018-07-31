@@ -49,6 +49,31 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+
 p {
   margin-top: initial;
 }
@@ -207,6 +232,11 @@ input {
   margin-left: 0;
 }
 
+.facebook-login {
+  max-width: 254px;
+  max-height: 40px;
+}
+
 /* Dropdown menu */
 
 .dropdown-item-friend-request {
@@ -331,6 +361,8 @@ input {
 }
 
 .small-avatar {
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   float: left;
 }
@@ -357,6 +389,8 @@ input {
 /* Comment Section */
 
 .comment-avatar {
+  height: 32px;
+  width: 32px;
   border-radius: 100%;
   float: left;
 }
@@ -405,4 +439,15 @@ input {
 .comment-btn {
   margin-top: 3%;
   width: 100px;
+}
+
+/* User show page */
+
+.add-friend-button-wrapper {
+  margin-top: 5px;
+}
+
+#add-friend-user-page {
+  margin-bottom: 15px;
+  width: 100%;
 }
