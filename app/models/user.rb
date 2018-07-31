@@ -1,5 +1,5 @@
-require 'open-uri'
 class User < ApplicationRecord
+  
   after_commit :add_default_avatar, on: [:create, :update]
 
   paginates_per 25
