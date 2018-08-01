@@ -1,1 +1,2 @@
 $("#user-page-button").html("<%= escape_javascript(render('users/add_friend_button', user: User.find(params[:id]))) %>");
+$("#friend-<%=params[:id]%>").remove();

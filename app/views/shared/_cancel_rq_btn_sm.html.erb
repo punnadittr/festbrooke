@@ -1,0 +1,8 @@
+<div class="right">
+  <%= button_to "Cancel Request",
+                friend_request_path(rq),
+                remote: true,
+                :params => { :id => rq.id },
+                method: :delete,
+                class: "btn btn-outline-danger btn-sm" %>
+</div>

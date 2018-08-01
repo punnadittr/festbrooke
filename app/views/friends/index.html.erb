@@ -6,43 +6,7 @@
       <h2><%= link_to "Your Profile", user_path(current_user) %></h2>
     </section>
   </aside>
-  <div class="col-md-4">
-    <h3> Friends </h3>
-      <% @friends.each do |friend| %>
-        <div class="friend-list">
-          <div class="left">
-            <%= image_tag friend.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
-            <%= link_to friend.shorten_name(20), user_path(friend.id), class: "friend-name" %>
-          </div>
-          <div class="right">
-            <%= button_to "Unfriend",
-                          friend_path(friend.id),
-                          :params => { :id => friend.id },
-                          method: :delete,
-                          class: "btn btn-danger btn-sm" %>
-          </div>
-        </div>
-      <% end %>
-    <hr>
-  </div>
-  <div class="col-md-4">
-    <h3> Pending Friends </h3>
-    <% current_user.sent_friend_requests.each do |rq| %>
-      <div class="friend-list">
-        <div class="left">
-          <%= image_tag rq.recipient.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
-          <%= link_to rq.recipient.shorten_name(15), user_path(rq.recipient), class: "friend-name" %>
-        </div>
-        <div class="right">
-          <%= button_to "Cancel Request",
-                        friend_request_path(rq),
-                        :params => { :id => rq.id },
-                        method: :delete,
-                        class: "btn btn-outline-danger btn-sm" %>
-        </div>
-      </div>
-    <% end %>
-    <hr>
-  </div>
+  <%= render 'all_friends' %>
+  <%= render 'pending_friends' %>
 </div>
 

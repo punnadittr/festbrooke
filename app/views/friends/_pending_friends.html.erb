@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <h3> Pending Friends </h3>
+  <% current_user.sent_friend_requests.each do |rq| %>
+    <div class="sent-request-list friend-list" id="request-<%= rq.id %>">
+      <div class="left">
+        <%= image_tag rq.recipient.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
+        <%= link_to rq.recipient.shorten_name(15), user_path(rq.recipient), class: "friend-name" %>
+      </div>
+      <%= render 'shared/cancel_rq_btn_sm', rq: rq %>
+    </div>
+  <% end %>
+  <hr>
+</div>

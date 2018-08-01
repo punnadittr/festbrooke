@@ -1,39 +1,37 @@
 <% provide(:title, @user.name) %>
-<div class="container">
-  <div class="row">
-    <aside class="col-md-4">
-      <section>
-        <h1>
-          <%= @user.name %>
-        </h1>
-        <div class="profile-photo">
-          <% if @user.avatar.blob.filename == 'default.jpg' && @user.provider == 'facebook' %>
-            <h1 class="profile-pic"><%= image_tag @user.remote_avatar %></h1>
-          <% else  %>
-            <h1 class="profile-pic"><%= image_tag @user.avatar.variant(resize: "200x200") %></h1>
-          <% end %>
-        </div>
-        <div id="user-page-button">
-        <% if not_self?(@user) %>
-          <% if request_sent?(@user) %>
-            <%= render 'cancel_button', sent_request: @sent_request %>
-          <% elsif request_received?(@user) %>
-            <%= render 'accept_button' %>
-            <%= render 'ignore_button', received_request: @received_request %>
-          <% elsif current_user.friends.include?(@user) %>
-            <%= render 'unfriend_button' %>
-          <% else %>           
-            <%= render 'add_friend_button', user: @user %>
-          <% end %>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <%= @user.name %>
+      </h1>
+      <div class="profile-photo">
+        <% if @user.avatar.blob.filename == 'default.jpg' && @user.provider == 'facebook' %>
+          <h1 class="profile-pic"><%= image_tag @user.remote_avatar %></h1>
+        <% else  %>
+          <h1 class="profile-pic"><%= image_tag @user.avatar.variant(resize: "200x200") %></h1>
         <% end %>
-        </div>
-      </section>
-    </aside>
-    <div class="col-md-6">
-      <% if @user == current_user %>
-        <%= render 'shared/post_form' %>
+      </div>
+      <div id="user-page-button">
+      <% if not_self?(@user) %>
+        <% if request_sent?(@user) %>
+          <%= render 'cancel_button', sent_request: @sent_request %>
+        <% elsif request_received?(@user) %>
+          <%= render 'accept_button' %>
+          <%= render 'ignore_button', received_request: @received_request %>
+        <% elsif current_user.friends.include?(@user) %>
+          <%= render 'unfriend_button' %>
+        <% else %>           
+          <%= render 'add_friend_button', user: @user %>
+        <% end %>
       <% end %>
-      <%= render 'user_posts' %>
-    </div>
+      </div>
+    </section>
+  </aside>
+  <div class="col-md-6">
+    <% if @user == current_user %>
+      <%= render 'shared/post_form' %>
+    <% end %>
+    <%= render 'user_posts' %>
   </div>
 </div>

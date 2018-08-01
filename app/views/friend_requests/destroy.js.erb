@@ -1,1 +1,2 @@
 $("#user-page-button").html("<%= escape_javascript(render('users/add_friend_button', user: @user)) %>");
+$("#request-<%=params[:id]%>").remove();
