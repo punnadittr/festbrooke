@@ -32,6 +32,8 @@
     <% if @user == current_user %>
       <%= render 'shared/post_form' %>
     <% end %>
-    <%= render 'user_posts' %>
+    <div class="post-wrapper">
+      <%= render 'shared/post_items', posts: @posts %>
+    </div>
   </div>
 </div>

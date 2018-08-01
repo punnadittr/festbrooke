@@ -7,10 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
-User.create!(:name => 'Punnadit Trussat', :email => 'punnadittr@gmail.com', :password => '123456', :password_confirmation => '123456')
-User.create!(:name => 'Aifa Trussat', :email => 'aifa@gmail.com', :password => '123456', :password_confirmation => '123456')
-User.create!(:name => 'Onnicha Wattanasiributh', :email => 'onnicha@gmail.com', :password => '123456', :password_confirmation => '123456')
-
 99.times do
   name = Faker::Name.first_name + ' ' + Faker::Name.last_name
   email = Faker::Internet.email

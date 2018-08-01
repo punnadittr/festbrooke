@@ -1,3 +1,5 @@
+include ActionView::Helpers::UrlHelper
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -18,11 +20,15 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = 'Posted!'
-      redirect_to user_path(current_user)
+      respond_to do |format|
+        format.html { redirect_to current_user }
+        format.js { flash.now[:notice] = "Posted!"}
+      end
     else
-      flash[:danger] = 'Content must not be empty'
-      redirect_to user_path(current_user)
+      respond_to do |format|
+        format.html { redirect_to current_user }
+        format.js { flash.now[:alert] = "Content must not be empty"}
+      end 
     end
   end
 
@@ -32,7 +38,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to user_path(current_user)
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.js { flash.now[:notice] = "Post deleted"}
+    end
   end
 
   private

@@ -1,5 +1,5 @@
-<% unless @posts.blank? %>
-  <% @posts.each do |post| %>
+<% unless @feed_items.blank? %>
+  <% @feed_items.each do |post| %>
     <% unless post.id.nil? %>
       <%= render 'shared/post', post: post %>
     <% end %>

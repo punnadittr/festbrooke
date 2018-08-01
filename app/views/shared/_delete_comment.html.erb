@@ -1,5 +1,6 @@
 <%= form_for( comment, 
               method: :delete,
+              remote: true,
               url: post_comment_path(post.id, comment.id)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     <%= button_tag  class: "btn btn-sm delete-comment-btn",

@@ -1,22 +1,20 @@
-<div class="comment-box">
-  <% post.comments.each do |comment| %>
-    <div class="commentator">
-      <% if comment.user.avatar.blob.filename == 'default.jpg' && comment.user.provider == 'facebook' %>
-        <%= image_tag comment.user.remote_avatar, class: "comment-avatar" %>
-      <% else  %>
-        <%= image_tag comment.user.avatar.variant(resize: "32x32"), class: "small-avatar" %>
-      <% end %>
-      <%= link_to comment.user.name, 
-                  user_path(comment.user), 
-                  class: "commentator-name" %>
-                  <i class="far fa-comment"></i>
-      <% if comment.user == current_user %>  
-        <%= render 'shared/delete_comment', comment: comment, post: post %>
-      <% end %>
-    </div>
-    <span class="comment-content"> > <%= comment.content %></span>
-  <% end %>
-  <div class="write-comments">
-    <%= render 'shared/comment_form', post: post %>
+<% post.comments.each do |comment| %>
+  <div class="commentator">
+    <% if comment.user.avatar.blob.filename == 'default.jpg' && comment.user.provider == 'facebook' %>
+      <%= image_tag comment.user.remote_avatar, class: "comment-avatar" %>
+    <% else  %>
+      <%= image_tag comment.user.avatar.variant(resize: "32x32"), class: "comment-avatar" %>
+    <% end %>
+    <%= link_to comment.user.name, 
+                user_path(comment.user), 
+                class: "commentator-name" %>
+                <i class="far fa-comment"></i>
+    <% if comment.user == current_user %>  
+      <%= render 'shared/delete_comment', comment: comment, post: post %>
+    <% end %>
   </div>
+  <span class="comment-content"> > <%= comment.content %></span>
+<% end %>
+<div class="write-comments">
+  <%= render 'shared/comment_form', post: post %>
 </div>

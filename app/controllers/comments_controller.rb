@@ -3,8 +3,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     if @comment.save
-      flash[:success] = 'Commented'
-      redirect_to user_path(current_user)
+      respond_to do |format|
+        format.html { redirect_to current_user }
+        format.js
+      end
     else
       flash[:danger] = 'Fail'
       redirect_to user_path(current_user)
@@ -14,7 +16,10 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to user_path(current_user)
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.js
+    end
   end
 
   def update

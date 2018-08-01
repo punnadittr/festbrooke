@@ -8,50 +8,58 @@
   </aside>
   <div class="col-md-4">
     <h3> Received Requests </h3>
-      <% @incoming.each do |rq| %>
-        <div class="friend-list" id="request-<%=rq.id%>">
-          <div class="left">
-            <%= image_tag rq.sender.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
-            <%= link_to rq.sender.shorten_name(20), user_path(rq.sender.id), class: "friend-name" %>
-          </div>
-          <div class="rq-btn" id="rq-btn-<%=rq.id%>">
-            <div class="right">
-              <div class="ignore-rq-index">
-                  <%= button_to "Ignore", 
-                      friend_request_path(rq),
-                      remote: true,
-                      :params => { :id => rq.id },
-                      method: :delete,
-                      class: 'btn btn-light btn-sm ignore',
-                      id: "ignore-#{rq.id}" %>
-              </div>
-            </div>
-            <div class="right">
-              <div class="accept-rq-index">
-                <%= button_to "Accept",
-                    friend_request_path(rq), 
+    <% if @incoming.blank? %>
+      <h6 style="color:#dc3545;"> You currently have no received requests </h5>
+    <% end %>
+    <% @incoming.each do |rq| %>
+      <div class="friend-list" id="request-<%=rq.id%>">
+        <div class="left">
+          <%= image_tag rq.sender.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
+          <%= link_to rq.sender.shorten_name(20), user_path(rq.sender.id), class: "friend-name" %>
+        </div>
+        <div class="rq-btn" id="rq-btn-<%=rq.id%>">
+          <div class="right">
+            <div class="ignore-rq-index">
+                <%= button_to "Ignore", 
+                    friend_request_path(rq),
                     remote: true,
                     :params => { :id => rq.id },
-                    method: :put, 
-                    class: 'btn btn-primary btn-sm accept',
-                    id: "accept-#{rq.id}" %>
-              </div>
+                    method: :delete,
+                    class: 'btn btn-light btn-sm ignore',
+                    id: "ignore-#{rq.id}" %>
+            </div>
+          </div>
+          <div class="right">
+            <div class="accept-rq-index">
+              <%= button_to "Accept",
+                  friend_request_path(rq), 
+                  remote: true,
+                  :params => { :id => rq.id },
+                  method: :put, 
+                  class: 'btn btn-primary btn-sm accept',
+                  id: "accept-#{rq.id}" %>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
+    <hr>
   </div>
   <div class="col-md-4">
     <h3> Sent Requests </h3>
-      <% @outgoing.each do |rq| %>
-        <div class="friend-list" id="request-<%= rq.id %>">
-          <div class="left">
-            <%= image_tag rq.recipient.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
-            <%= link_to rq.recipient.shorten_name(20), user_path(rq.recipient.id), class: "friend-name" %>
-          </div>
-       <%= render 'shared/cancel_rq_btn_sm', rq: rq %>
-       </div>
-      <% end %>
+    <% if @outgoing.blank? %>
+      <h6 style="color:#dc3545;"> You currently have no sent requests </h5>
+    <% end %>
+    <% @outgoing.each do |rq| %>
+      <div class="friend-list" id="request-<%= rq.id %>">
+        <div class="left">
+          <%= image_tag rq.recipient.avatar.variant(resize: '40x40'), class: 'small-avatar' %>
+          <%= link_to rq.recipient.shorten_name(20), user_path(rq.recipient.id), class: "friend-name" %>
+        </div>
+      <%= render 'shared/cancel_rq_btn_sm', rq: rq %>
+      </div>
+    <% end %>
+    <hr>
   </div>
 </div>
 

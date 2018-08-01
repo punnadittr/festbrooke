@@ -1,5 +1,8 @@
 <div class="col-md-4">
   <h3> Pending Friends </h3>
+  <% if current_user.sent_friend_requests.blank? %>
+    <h6 style="color:#dc3545;"> You currently have no pending friends </h5>
+  <% end %>
   <% current_user.sent_friend_requests.each do |rq| %>
     <div class="sent-request-list friend-list" id="request-<%= rq.id %>">
       <div class="left">

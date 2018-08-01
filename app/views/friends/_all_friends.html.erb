@@ -1,5 +1,8 @@
 <div class="col-md-4">
   <h3> Friends </h3>
+  <% if @friends.blank? %>
+    <h6 style="color:#dc3545;"> You currently have no friends </h5>
+  <% end %>
   <% @friends.each do |friend| %>
     <div class="friend-list" id="friend-<%= friend.id %>">
       <div class="left">

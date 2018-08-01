@@ -2,12 +2,8 @@
   <div class="col-md-6 offset-md-3">
     <h1> Timeline </h1>
     <%= render 'shared/post_form' %>
-    <% unless @feed_items.blank? %>
-      <% @feed_items.each do |post| %>
-        <% unless post.id.nil? %>
-          <%= render 'shared/post', post: post %>
-        <% end %>
-      <% end %>
-    <% end %>
+    <div class="post-wrapper-timeline">
+      <%= render 'shared/post_items', posts: @feed_items %>
+    </div>
   </div>
 </div>

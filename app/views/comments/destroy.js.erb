@@ -1,0 +1,1 @@
+$("#comment-<%=@comment.post.id%>").html("<%= escape_javascript(render('shared/comment_section', post: @comment.post))%>");

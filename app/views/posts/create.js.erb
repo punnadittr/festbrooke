@@ -1,0 +1,5 @@
+$(".post-wrapper").html("<%= escape_javascript(render('shared/post_items', posts: current_user.posts)) %>")
+$(".post-wrapper-timeline").html("<%= escape_javascript(render('shared/post_items', posts: current_user.feed)) %>")
+$("#flash").html("<%= j render partial: 'layouts/flash', locals: { alert: flash[:alert] } %>");
+$("#flash").html("<%= j render partial: 'layouts/flash', locals: { notice: flash[:notice] } %>");
+
