@@ -5,6 +5,8 @@ class FriendRequestFlowsTest < ActionDispatch::IntegrationTest
   def setup
     @user1 = users(:user1)
     @user2 = users(:user2)
+    attach_pic(@user1)
+    attach_pic(@user2)
   end
 
   test "should be able to send friend request" do

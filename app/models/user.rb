@@ -14,7 +14,7 @@ class User < ApplicationRecord
             :class_name => 'FriendRequest', 
             :dependent => :destroy
 
-  has_one_attached :avatar, dependent: :destroy
+  has_one_attached :avatar
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
@@ -33,7 +33,7 @@ class User < ApplicationRecord
   def shorten_name(length)
     if self.name.length > length
       name = self.name.split
-      name[0] + ' ' + name[1][0] + '.'
+      "#{name[0]} #{name[1][0]}."
     else
       self.name
     end
@@ -58,7 +58,7 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
+      user.name = auth.info.name
       user.remote_avatar = auth.info.image
     end
   end

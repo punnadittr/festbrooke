@@ -25,6 +25,12 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 
+  def attach_pic(user)
+    user.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpg")), 
+    filename: 'default.jpg',
+    content_type: "image/jpg")
+  end
+
   def sign_in_as(user)
     visit new_user_session_path
     fill_in('Email', with: user.email)
