@@ -1,24 +1,21 @@
-# README
+# FestBrooke
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live Version](https://festbrooke.herokuapp.com/)
 
-Things you may want to cover:
+Features
+* Sign in/ Sign up with Facebook account
+* AJAX for posts, comments, likes, adding friends
+* Main Facebook funtionalities such as posting, adding friends, timeline, comments, likes
+* Used Active Storage for user's avatars and post's images
+* Bootstrap 4 mobile responsive
 
-* Ruby version
+I Learned About
+* How to use Active Storage and S3
+* Bootstrap 4
+* How to setup complicated association (user-user relationship via friend requests)
+* How to do integration tests
+* How not to be banging my head to the wall!
 
-* System dependencies
+My proudest project yet!
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+As a part of [the Odin Project](https://www.theodinproject.com/lessons/final-project)
