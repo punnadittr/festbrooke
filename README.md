@@ -16,6 +16,4 @@ I Learned About
 * How to do integration tests
 * How not to be banging my head to the wall!
 
-My proudest project yet!
-
 As a part of [the Odin Project](https://www.theodinproject.com/lessons/final-project)
