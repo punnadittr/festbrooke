@@ -1,6 +1,8 @@
 <li class="user-li">
   <div class="left">
-    <% if user.avatar.attached? %>
+    <% if user.avatar.blob.filename == 'default.jpg' && user.provider == 'facebook' %>
+      <%= image_tag user.remote_avatar, class: "user-index-avatar" %>
+    <% else %>
       <%= image_tag user.avatar.variant(resize: "40x40") %>
     <% end %>
     <%= link_to user.shorten_name(15), user %>
